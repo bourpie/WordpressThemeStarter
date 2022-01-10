@@ -1,0 +1,25 @@
+{
+  "name": "mytheme",
+  "version": "1.0.0",
+  "description": "Wordpress theming starter kit",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "css-build": "node-sass --output-style compressed -rw scss -o css",
+    "css-watch": "npm run css-build -- --watch",
+    "build": "purgecss --config ./purgecss.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bourpie/WordpressThemeStarter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bourpie/WordpressThemeStarter/issues"
+  },
+  "homepage": "https://github.com/bourpie/WordpressThemeStarter#readme"
+}
