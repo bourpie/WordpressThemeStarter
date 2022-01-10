@@ -26,6 +26,7 @@ add_action('wp_enqueue_scripts', 'load_js');
 // Theme options
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
+add_theme_support('widgets');
 
 
 // Menus
@@ -66,3 +67,34 @@ add_filter( 'get_the_archive_title', function ($title) {
 
 add_image_size('blog-large', 800, 400, true);
 add_image_size('blog-small', 300, 200, true);
+
+
+// Register Sidebars
+function my_sidebars()
+{
+    register_sidebar(
+        array(
+                'name' => 'Page Sidebar',
+                'id' => 'page-sidebar', 
+                'before_title' => '<h4 class="widget-title">',
+                'after_title' => '</h4>',
+                'before_widget' => '<div class="sidebar-module">',
+                'after_widget' => '</div>',
+
+            )
+        );
+
+        register_sidebar(
+            array(
+                    'name' => 'Blog Sidebar',
+                    'id' => 'blog-sidebar', 
+                    'before_title' => '<h4 class="widget-title">',
+                    'after_title' => '</h4>',
+                    'before_widget' => '<div class="sidebar-module">',
+                    'after_widget' => '</div>',
+    
+                )
+            );
+
+}
+add_action('widgets_init', 'my_sidebars');

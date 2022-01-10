@@ -8,24 +8,30 @@
                     loading="lazy"
                     class="img-fluid img-thumbnail mb-4"
                 >
-                
-            <?php else: ?>
+            
+        <?php else: ?>
 
-
-                <img 
-                    src="https://picsum.photos/1920/800" 
-                    loading="lazy"
-                    alt="" class="img-fluid img-thumbnail mb-4">
-        
-        <?php endif; ?>
+            <img 
+                src="https://picsum.photos/1920/800" 
+                loading="lazy"
+                alt="" class="img-fluid img-thumbnail mb-4">
+    
+    <?php endif; ?>
     <?php get_template_part('includes/section', 'top'); ?>
 </header>
 
-<main>
-    <div class="container">
-        <?php get_template_part('includes/section', 'blogcontent'); ?>
-        
+<div class="container">
+    <div class="row">
+        <aside class="col-3">
+            <?php if( is_active_sidebar('blog-sidebar') ) : ?>
+                <?php dynamic_sidebar('blog-sidebar'); ?>
+            <?php endif; ?>
+        </aside>
+
+        <main class="col-9">
+            <?php get_template_part('includes/section', 'blogcontent'); ?>
+        </main>
     </div>
-</main>
+</div>
 
 <?php get_footer(); ?>
