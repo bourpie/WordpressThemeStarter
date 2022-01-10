@@ -22,9 +22,10 @@ function load_js()
 
 add_action('wp_enqueue_scripts', 'load_js');
 
+
 // Theme options
 add_theme_support('menus');
-
+add_theme_support('post-thumbnails');
 
 
 // Menus
@@ -34,3 +35,34 @@ register_nav_menus(
         'mobile-menu' => 'Mobile Menu Location',
     )
 );
+
+// Removes W3C Warnings for type attributes
+add_action(
+    'after_setup_theme',
+    function() {
+        add_theme_support( 'html5', [ 'script', 'style' ] );
+    }
+);
+
+//Filters
+// Remove "Category:", "Tag:", "Author:" from the_archive_title
+add_filter( 'get_the_archive_title', function ($title) {    
+    if ( is_category() ) {    
+            $title = single_cat_title( '', false );    
+        } elseif ( is_tag() ) {    
+            $title = single_tag_title( '', false );    
+        } elseif ( is_author() ) {    
+            $title = '<span class="vcard">' . get_the_author() . '</span>' ;    
+        } elseif ( is_tax() ) { //for custom post types
+            $title = sprintf( __( '%1$s' ), single_term_title( '', false ) );
+        } elseif (is_post_type_archive()) {
+            $title = post_type_archive_title( '', false );
+        }
+    return $title;    
+});
+
+
+// Custom Image Sizes
+
+add_image_size('blog-large', 800, 400, true);
+add_image_size('blog-small', 300, 200, true);

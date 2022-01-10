@@ -10,15 +10,16 @@
 </head>
 <body>
 
-<header class="page-header">
-    <nav>
-        <div class="container">
-            <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'top-menu',
-                    'container_class' => 'top-menu'
-                ));
-            ?>
-        </div>
-    </nav>
+<header class="header-main">
+    <div class="container">
+        <?php
+            wp_nav_menu(array(
+                'theme_location' => 'top-menu',
+                'container' => 'nav',
+                'container_class' => 'header-main__menu',
+                'menu_class' => 'header-main__menu--list',
+                'menu_id' => 'top-menu',
+            ));
+        ?>
+    </div>
 </header>
