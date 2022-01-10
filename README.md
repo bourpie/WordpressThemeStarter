@@ -1,43 +1,15 @@
-# Wordpress theming from scratch
+# Wordpress theming with Bootstrap and SASS
 
-Wordpress theming reminder
+## Install
 
-## Theme bare minimum
-- Create new folder
-- create index.php
-- create styles.css with comments
+`npm install`
 
-## The main php pages
-- screenshot.png (1200 x 900)
-- 404.php
-- archive.php
-- front-page.php
-- page.php
-- functions.php (Load styles, js and menu locations)
-- index.php
-- search.php
-- single.php
+## Watch SASS
 
-## Adding the front page
-- Tell wordpress to use front-page has front page
+`npm run css-watch`
 
-## Add includes to organize code
+## Purge CSS
 
-## Adding templates
+To remove unused Bootstrap CSS from your main.css stylesheet
 
-Wordpress will recognise as a template all php files starting with the name "template-mytemplateName.php"
-
-## Adding navigation
-https://www.youtube.com/watch?v=TmmLRv9yY0M&list=PLgFB6lmeXFOpHnNmQ4fdIYA5X_9XhjJ9d&index=5
-
-`
-    // in functions.php
-    // Menus
-    <?php
-        wp_nav_menu(array(
-            'theme_location' => 'top-menu',
-            'container_class' => 'top-menu'
-        ));
-    ?>
-
-`
+`npm run build`
