@@ -98,3 +98,49 @@ function my_sidebars()
 
 }
 add_action('widgets_init', 'my_sidebars');
+
+
+
+//Shortcodes
+
+// [button link="#" text="Button Text" class="primary"]
+function button_func($atts, $content = null)
+{
+    extract(shortcode_atts(array(
+        'link' => '#',
+        'text' => 'Button Text',
+        'class' => 'primary',
+    ), $atts));
+
+    return '<a href="' . $link . '" class="btn btn-' . $class . '">' . $text . '</a>';
+}
+
+add_shortcode('button', 'button_func');
+
+function alert_func($atts, $content = null)
+{
+    extract(shortcode_atts(array(
+        'type' => 'info',
+        'text' => 'Alert Text',
+        'icon' => '',
+    ), $atts));
+
+    if($type == 'success') {
+        $type = 'alert-success';
+        $icon = '<i class="fas fa-check-circle"></i>';
+    } elseif($type == 'info') {
+        $type = 'alert-info';
+        $icon = '<i class="fas fa-info-circle"></i>';
+    } elseif($type == 'warning') {
+        $type = 'alert-warning';
+        $icon = '<i class="fas fa-exclamation-circle"></i>';
+    } elseif($type == 'danger') {
+        $type = 'alert-danger';
+        $icon = '<i class="fas fa-exclamation-triangle"></i>';
+    }
+
+    return '<div class="alert ' . $type . '">' . $icon . '<span class="ms-3">' . $text . '</span></div>';
+}
+
+add_shortcode('alert', 'alert_func');
+
