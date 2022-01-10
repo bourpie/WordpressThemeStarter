@@ -1,20 +1,14 @@
 <?php get_header(); ?>
+
+
 <header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1>
-                    <?php the_title();?>
-                </h1>
-            </div>
-        </div>
-    </div>
+    <?php get_template_part('includes/section', 'top'); ?>
 </header>
 
 <main>
-
-    <?php get_template_part('includes/section', 'content'); ?>
-
+    <div class="container">
+        <?php get_template_part('includes/section', 'content'); ?>
+    </div>
 </main>
 
 <?php get_footer(); ?>

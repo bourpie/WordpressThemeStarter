@@ -7,4 +7,18 @@
     <title>Document</title>
     <?php wp_head();?>
 
-    
+</head>
+<body>
+
+<header class="page-header">
+    <nav>
+        <div class="container">
+            <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'top-menu',
+                    'container_class' => 'top-menu'
+                ));
+            ?>
+        </div>
+    </nav>
+</header>
