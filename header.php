@@ -20,5 +20,7 @@
                 'menu_id' => 'top-menu',
             ));
         ?>
+
+        <?php get_search_form(); ?>
     </div>
 </header>
